@@ -60,7 +60,7 @@ export function TabelaDetalhada({ faseAcumulacao, faseRetirada, poupancaMensal, 
         'Acumulação',
         String(r.ano),
         String(r.idade),
-        formatCurrency(r.aporteMensal),
+        formatCurrency(r.aporteMensal * 12),
         r.eventoAvulso != null ? formatCurrency(r.eventoAvulso) : '-',
         formatCurrency(r.patrimonioNominal),
         formatCurrency(r.patrimonioReal),
@@ -72,7 +72,7 @@ export function TabelaDetalhada({ faseAcumulacao, faseRetirada, poupancaMensal, 
         'Retirada',
         String(r.ano),
         String(r.idade),
-        formatCurrency(r.retiradaMensal),
+        formatCurrency(r.retiradaMensal * 12),
         r.eventoAvulso != null ? formatCurrency(r.eventoAvulso) : '-',
         formatCurrency(r.patrimonioNominal),
         formatCurrency(r.patrimonioReal),
@@ -124,11 +124,12 @@ export function TabelaDetalhada({ faseAcumulacao, faseRetirada, poupancaMensal, 
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <span className="cursor-help">
-                            {formatCurrency(r.aporteMensal)}
+                            {formatCurrency(r.aporteMensal * 12)}
                           </span>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p className="text-xs">Valor presente: {formatCurrency(poupancaMensal)}</p>
+                          <p className="text-xs">Valor presente (anual): {formatCurrency(poupancaMensal * 12)}</p>
+                          <p className="text-xs">Nominal deste ano: {formatCurrency(r.aporteMensal * 12)}</p>
                         </TooltipContent>
                       </Tooltip>
                     </td>
@@ -175,11 +176,12 @@ export function TabelaDetalhada({ faseAcumulacao, faseRetirada, poupancaMensal, 
                       <Tooltip>
                         <TooltipTrigger asChild>
                           <span className="cursor-help">
-                            {formatCurrency(r.retiradaMensal)}
+                            {formatCurrency(r.retiradaMensal * 12)}
                           </span>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p className="text-xs">Valor presente: {formatCurrency(rendaMensalDesejada)}</p>
+                          <p className="text-xs">Valor presente (anual): {formatCurrency(rendaMensalDesejada * 12)}</p>
+                          <p className="text-xs">Nominal deste ano: {formatCurrency(r.retiradaMensal * 12)}</p>
                         </TooltipContent>
                       </Tooltip>
                     </td>
