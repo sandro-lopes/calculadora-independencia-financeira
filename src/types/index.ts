@@ -80,9 +80,9 @@ export type FormValues = z.infer<typeof formSchema>;
 export const defaultValues: FormValues = {
   idadeAtual: 18,
   patrimonioAtual: 0,
-  poupancaMensal: 3000,
+  poupancaMensal: 500,
   idadeAposentadoria: 60,
-  rendaMensalDesejada: 15000,
+  rendaMensalDesejada: 5000,
   expectativaVida: 80,
   inflacao: 0.05,
   rentabilidade: 0.12,
