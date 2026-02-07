@@ -56,7 +56,7 @@ export type Resultado = {
 
 export const formSchema = z
   .object({
-    idadeAtual: z.number().min(18).max(100),
+    idadeAtual: z.number().min(12).max(100),
     patrimonioAtual: z.number().min(0),
     poupancaMensal: z.number().min(0),
     idadeAposentadoria: z.number().min(18).max(100),
@@ -78,12 +78,12 @@ export const formSchema = z
 export type FormValues = z.infer<typeof formSchema>;
 
 export const defaultValues: FormValues = {
-  idadeAtual: 35,
-  patrimonioAtual: 100000,
+  idadeAtual: 18,
+  patrimonioAtual: 0,
   poupancaMensal: 3000,
-  idadeAposentadoria: 55,
+  idadeAposentadoria: 60,
   rendaMensalDesejada: 15000,
-  expectativaVida: 90,
+  expectativaVida: 80,
   inflacao: 0.05,
   rentabilidade: 0.12,
   eventosAvulsos: [],

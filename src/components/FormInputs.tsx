@@ -22,7 +22,7 @@ export function FormInputs() {
                 <Input
                   type="text"
                   inputMode="numeric"
-                  min={18}
+                  min={12}
                   max={100}
                   value={field.value === 0 ? '' : String(field.value ?? '')}
                   onChange={(e) => {
@@ -38,7 +38,7 @@ export function FormInputs() {
                     if (v === '') field.onChange(18);
                     else {
                       const n = parseInt(v, 10);
-                      if (!isNaN(n)) field.onChange(Math.min(100, Math.max(18, n)));
+                      if (!isNaN(n)) field.onChange(Math.min(100, Math.max(12, n)));
                     }
                     field.onBlur();
                   }}
