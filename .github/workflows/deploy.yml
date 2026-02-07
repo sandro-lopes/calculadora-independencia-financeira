@@ -33,13 +33,19 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Remove symlinks
+        run: |
+          echo "Checking for symlinks in ./dist..."
+          find ./dist -type l -delete || true
+          echo "Artifact size:"
+          du -sh ./dist
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: ./dist
 
   deploy:
